@@ -3,11 +3,19 @@ import os
 import random
 from faker import Faker
 
-
 def main():
     fake = Faker('ru_RU')
     for cards in range(1, 11):
-        skills = ['Стремительный прыжок', 'Электрический выстрел', 'Ледяной удар', 'Стремительный удар', 'Кислотный взгляд', 'Тайный побег', 'Ледяной выстрел', 'Огненный заряд']
+        skills = [
+        'Стремительный прыжок',
+        'Электрический выстрел', 
+        'Ледяной удар', 
+        'Стремительный удар', 
+        'Кислотный взгляд', 
+        'Тайный побег', 
+        'Ледяной выстрел', 
+        'Огненный заряд'
+        ]
         runic_skills = []
         ancient_letters = {
     'а': 'а͠',
@@ -104,6 +112,6 @@ def main():
         random.sample(runic_skills, 8)
         file_name = f'file_{cards}.svg'
         os.makedirs('cards', mode=0o777, exist_ok=True)
-        file_operations.render_template('charsheet.svg', f'cards/{file_name}', {})
+        file_operations.render_template('charsheet.svg', f'cards/{file_name}', context)
 if __name__ == '__main__':
     main()
